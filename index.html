@@ -1,9 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    Hello World!
-  </head>
-  <body>
-    Hi There!
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      color: #282828;
+      text-align: center;
+      margin: 0;
+      height: 100vh;
+      background-color: #fffff4;
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* background-image: url("./img/background_rotated.jpg"); */
+    }
+
+    @font-face {
+      font-family: "Ekushey";
+      src: url("./fonts/Sharifa_03-09-2005.ttf");
+    }
+
+    @font-face {
+      font-family: "BenSen";
+      src: url("./fonts/Sharifa_03-09-2005.ttf");
+    }
+
+    h1,
+    h3 {
+      line-height: 2.6rem;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+    }
+    h3 {
+      font-size: 2.2rem;
+    }
+
+    p,
+    a {
+      font-size: 1.6rem;
+    }
+
+    a {
+      color: #083d77;
+    }
+    .pic {
+      border-radius: 10px;
+    }
+    .shadow {
+      position: relative;
+    }
+    .shadow:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      -webkit-box-shadow: 0 0 60px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 0 0 60px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 60px rgba(0, 0, 0, 1);
+      height: 80%;
+      left: 10%;
+      right: 10%;
+      width: 80%;
+      bottom: 16%;
+    }
+
+    .separator {
+      height: 6px;
+      width: 65vw;
+      background-color: #fabd2f;
+      margin-bottom: 1.5rem;
+      -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+      -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.5em;
+    "
+  >
+    <div class="pic shadow">
+      <img
+        src="./img/baby.png"
+        alt="Mascot"
+        style="width: 65vw; object-fit: contain; margin-bottom: 1.5rem"
+      />
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div style="font-family: 'Ekushey'; margin-bottom: 18px">
+      <h1>অহেন্দ্রীতির</h1>
+      <h3>অন্নপ্রাশন</h3>
+    </div>
+    <div style="font-family: 'Ekushey'; margin-bottom: 1rem">
+      <p style="font-size: 1.7rem"><b>নিমন্ত্রণে</b></p>
+      <p style="font-size: 2rem; line-height: 1.7rem">
+        শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ
+      </p>
+    </div>
+    <div style="font-family: 'BenSen'">
+      <p style="font-size: 1.4rem"><b>Monday, 7th October, 2024</b></p>
+      <p><b>সোমবার, ২০শে আশ্বিন, ১৪৩১</b></p>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <div style="font-family: 'BenSen'; line-height: 1.7rem; margin-top: -10px">
+      <p><b>ঠিকানা</b></p>
+      <a href="https://google.com"
+        >যতীন পার্ক হাউজিং সোসাইটি, কৃষক পল্লি, পঞ্চসায়ার<br />পরিপূর্ণতা
+        হাফওয়ে হোটেলের বিপরীতে</a
+      >
+    </div>
   </body>
 </html>

@@ -20,7 +20,7 @@ jobs:
                 node takeScreenshot.cjs
                 convert -append *.png screenshot.png
             - name: Upload screenshots
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: Screenshot
                 path: |
@@ -29,7 +29,7 @@ jobs:
               id: date
               run: echo "date=$(date +'%Y.%m.%d_%H.%M.%S')" >> $GITHUB_ENV
             - name: Release screenshot
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v2
               with:
                 files: |
                     screenshot.png

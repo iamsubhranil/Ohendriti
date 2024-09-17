@@ -1,0 +1,37 @@
+name: Render and show screenshot 
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Install packages
+              run: |
+                sudo apt-get install nodejs npm imagemagick
+                npm install
+            - name: Generate screenshot
+              run: |
+                npx http-server . -p 8000 &
+                node takeScreenshot.cjs
+                convert -append *.png screenshot.png
+            - name: Upload screenshots
+              uses: actions/upload-artifact@v3
+              with:
+                name: Screenshot
+                path: |
+                  screenshot.png
+            - name: Get current date
+              id: date
+              run: echo "date=$(date +'%Y.%m.%d_%H.%M.%S')" >> $GITHUB_ENV
+            - name: Release screenshot
+              uses: softprops/action-gh-release@v1
+              with:
+                files: |
+                    screenshot.png
+                body: "Artifacts generated at ${{ env.date }}"
+                tag_name: ${{ env.date }}

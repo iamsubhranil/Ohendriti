@@ -111,27 +111,67 @@
     </div>
     <div class="separator">&nbsp;</div>
     <div style="font-family: 'Ekushey'; margin-bottom: 18px">
-      <h1>অহেন্দ্রীতির</h1>
-      <h3>শুভ অন্নপ্রাশন</h3>
+      <h1 id="name">অহেন্দ্রীতির</h1>
+      <h3 id="ceremony">শুভ অন্নপ্রাশন</h3>
     </div>
     <div style="font-family: 'Ekushey'; margin-bottom: 1rem">
-      <p style="font-size: 1.7rem"><b>নিমন্ত্রণে</b></p>
-      <p style="font-size: 2rem; line-height: 1.7rem">
+      <p style="font-size: 1.7rem"><b id="inviting">নিমন্ত্রণে</b></p>
+      <p style="font-size: 2rem; line-height: 1.7rem" id="parents">
         শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ
       </p>
     </div>
     <div style="font-family: 'BenSen'">
-      <p style="font-size: 1.4rem"><b>Monday Evening, 7th October, 2024</b></p>
-      <p><b>সোমবার সন্ধ্যায়, ২০শে আশ্বিন, ১৪৩১</b></p>
+      <p style="font-size: 1.4rem"></p>
+      <p id="date"><b>সোমবার সন্ধ্যায়, ২০শে আশ্বিন, ১৪৩১</b></p>
     </div>
     <div class="separator">&nbsp;</div>
     <div style="font-family: 'BenSen'; line-height: 1.7rem; margin-top: -10px">
-      <p><b>ঠিকানা</b></p>
-      <a href="https://maps.app.goo.gl/sZXDacicFZfAiDX69"
+      <p id="addr_header"><b>ঠিকানা</b></p>
+      <a href="https://maps.app.goo.gl/sZXDacicFZfAiDX69" id="address"
         >এন কে ভবন<br />
         বি ২১/এ, বাঘাযতীন পার্ক হাউজিং সোসাইটি, কৃষক পল্লি, পঞ্চসায়র, কলকাতা
         ৭০০০৯৪
       </a>
     </div>
   </body>
+
+  <script>
+    const STRINGS = [
+      {
+        "name": "অহেন্দ্রীতির",
+        "ceremony": "শুভ অন্নপ্রাশন",
+        "inviting": "নিমন্ত্রণে",
+        "parents": "শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ",
+        "date": "<b>সোমবার সন্ধ্যায়, ২০শে আশ্বিন, ১৪৩১</b>",
+        "addr_header": "<b>ঠিকানা</b>",
+        "address": "এন কে ভবন<br /> " +
+        "বি ২১/এ, বাঘাযতীন পার্ক হাউজিং সোসাইটি, কৃষক পল্লি, পঞ্চসায়র, কলকাতা" +
+        "৭০০০৯৪"
+      },
+      {
+        "name": "Ohendriti's",
+        "ceremony": "Rice Ceremony",
+        "inviting": "Cordially Invited by",
+        "parents": "Mrs. Sreeparna Mukhopadhyay<br />Mr. Subhadeep Guha",
+        "date": "<b>Monday Evening, 7th October, 2024</b>",
+        "addr_header": "<b>Address</b>",
+        "address": "N. K. Bhawan<br /> " +
+        "B 21/A, Baghajatin Park Housing Society, Krishak Palli, " +
+        "Panchasayar, Kolkata 700094"
+      }
+    ];
+
+    function populate() {
+      var start = 0;
+      setInterval(function() {
+        start = (start + 1) % 2;
+        var lang_strings = STRINGS[start];
+        for(key in lang_strings) {
+          document.getElementById(key).innerHTML = lang_strings[key];
+        }
+      }, 2000);
+    }
+
+    window.onload = populate;
+  </script>
 </html>

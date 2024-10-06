@@ -124,7 +124,7 @@
         <h3 id="ceremony">শুভ অন্নপ্রাশন</h3>
       </div>
       <div style="font-family: 'Ekushey'; margin-bottom: 1rem">
-        <p style="font-size: 1.7rem"><b id="inviting">নিমন্ত্রণে</b></p>
+        <p style="font-size: 1.7rem" id="inviting"><b>নিমন্ত্রণে</b></p>
         <p style="font-size: 2rem; line-height: 1.7rem" id="parents">
           শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ
         </p>
@@ -149,26 +149,22 @@
   <script>
     const STRINGS = [
       {
-        "name": "অহেন্দ্রীতির",
-        "ceremony": "শুভ অন্নপ্রাশন",
-        "inviting": "নিমন্ত্রণে",
-        "parents": "শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ",
-        "date": "<b>সোমবার সন্ধ্যায়, ২০শে আশ্বিন, ১৪৩১</b>",
-        "addr_header": "<b>ঠিকানা</b>",
-        "address": "এন কে ভবন<br /> " +
-        "বি ২১/এ, বাঘাযতীন পার্ক হাউজিং সোসাইটি, কৃষক পল্লি, পঞ্চসায়র, কলকাতা" +
-        "৭০০০৯৪"
+        "name": ["অহেন্দ্রীতির", "Ekushey", "56px"], 
+        "ceremony": ["শুভ অন্নপ্রাশন", "Ekushey", "35.2px"], 
+        "inviting": ["<b>নিমন্ত্রণে</b>", "Ekushey", "27.2px"], 
+        "parents": ["শ্রীমতি শ্রীপর্ণা মুখোপাধ্যায়<br />শ্রী শুভদীপ গুহ", "Ekushey", "32px"], 
+        "date": ["<b>সোমবার সন্ধ্যায়, ২০শে আশ্বিন, ১৪৩১</b>", "BenSen", "25.6px"], 
+        "addr_header": ["<b>ঠিকানা</b>", "BenSen", "25.6px"], 
+        "address": ["এন কে ভবন<br /> বি ২১/এ, বাঘাযতীন পার্ক হাউজিং সোসাইটি, কৃষক পল্লি, পঞ্চসায়র, কলকাতা ৭০০০৯৪", "BenSen", "25.6px"], 
       },
       {
-        "name": "Ohendriti's",
-        "ceremony": "Rice Ceremony",
-        "inviting": "Cordially Invited by",
-        "parents": "Mrs. Sreeparna Mukhopadhyay<br />Mr. Subhadeep Guha",
-        "date": "<b>Monday Evening, 7th October, 2024</b>",
-        "addr_header": "<b>Address</b>",
-        "address": "N. K. Bhawan<br /> " +
-        "B 21/A, Baghajatin Park Housing Society, Krishak Palli, " +
-        "Panchasayar, Kolkata 700094"
+        "name": ["Ohendriti's", "Ekushey", "56px"], 
+        "ceremony": ["Rice Ceremony", "Ekushey", "35.2px"], 
+        "inviting": ["<b>Cordially Invited by</b>", "Ekushey", "27.2px"], 
+        "parents": ["Mrs. Sreeparna Mukhopadhyay<br />Mr. Subhadeep Guha", "Ekushey", "32px"], 
+        "date": ["<b>Monday Evening, 7th October, 2024</b>", "BenSen", "25.6px"], 
+        "addr_header": ["<b>Address</b>", "BenSen", "25.6px"], 
+        "address": ["N. K. Bhawan<br /> B 21/A, Baghajatin Park Housing Society, Krishak Palli, Panchasayar, Kolkata 700094", "BenSen", "25.6px"], 
       }
     ];
 
@@ -180,9 +176,18 @@
         document.getElementById("opacity_wrapper0").style.opacity = 0;
         document.getElementById("opacity_wrapper1").style.opacity = 0;
         setTimeout(function() {
+          var str = "";
           for(key in lang_strings) {
-            document.getElementById(key).innerHTML = lang_strings[key];
+            var element = document.getElementById(key);
+            var props = lang_strings[key];
+            element.innerHTML = props[0];
+            element.style.fontFamily = props[1];
+            element.style.fontSize = props[2];
+            var size = window.getComputedStyle(element, null).getPropertyValue('font-size');
+            var family = window.getComputedStyle(element, null).getPropertyValue('font-family');
+            str += '"' + key + '": ["' + props[0] + '", ' + family + ', "' + size + '"], \n';
           }
+          console.log(str);
           document.getElementById("opacity_wrapper0").style.opacity = 1;
           document.getElementById("opacity_wrapper1").style.opacity = 1;
         }, 500);
